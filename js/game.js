@@ -17,6 +17,7 @@ class Game {
         this.speed = 150;
         this.isRunning = false;
         this.isPaused = false;
+        this.isGameOver = false;
         this.gameLoopId = null;
 
         // UI 元素
@@ -69,10 +70,14 @@ class Game {
     // 处理键盘输入
     handleKeydown(e) {
         if (!this.isRunning || this.isPaused) {
-            // 未开始或暂停时，空格键开始
+            // 未开始或暂停时，空格键开始/重新开始
             if (e.code === 'Space' && !this.isRunning) {
                 e.preventDefault();
-                this.start();
+                if (this.isGameOver) {
+                    this.restart();
+                } else {
+                    this.start();
+                }
                 return;
             }
         }
@@ -131,6 +136,7 @@ class Game {
         // 重置游戏状态
         this.isRunning = false;
         this.isPaused = false;
+        this.isGameOver = false;
         this.score = 0;
 
         // 重置蛇和食物
@@ -152,6 +158,7 @@ class Game {
     gameOver() {
         this.isRunning = false;
         this.isPaused = false;
+        this.isGameOver = true;
         this.pauseBtn.disabled = true;
 
         // 更新最高分
