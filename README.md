@@ -64,7 +64,8 @@ Snake-Game/
 
 ## 📸 游戏截图
 
-（此处可添加游戏截图）
+<img width="822" height="1077" alt="image" src="https://github.com/user-attachments/assets/28172781-2588-4161-8b20-c24210f5a746" />
+
 
 ## 🔮 未来计划
 
